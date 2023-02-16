@@ -31,16 +31,4 @@ public class SimpleStreamTest {
 
         Assertions.assertEquals(18, result);
     }
-
-    @Test
-    void limit_reduce(){
-        Stream<Integer> infinito = Stream.iterate(0, i -> i + 3);
-
-        Integer result = infinito
-                .limit(4)
-                .reduce((a,b) -> a + b)
-                .orElse(1);
-
-        Assertions.assertEquals(18, result);
-    }
 }
