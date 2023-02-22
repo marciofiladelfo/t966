@@ -1,10 +1,9 @@
 package com.example.desafio1;
 
-import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Cenarios {
 
@@ -18,29 +17,35 @@ public class Cenarios {
 
         var animaisCarnivoros = animalList
                 .stream()
-                .filter(element -> {
-                    return Objects.equals(element.alimentacao, "carnívoro");
-                })
+                .filter(element -> Objects.equals(element.getAlimentacao(), "carnívoro"))
                 .collect(Collectors.toList());
 
         System.out.println(animaisCarnivoros);
 
         var animaisQueAndam = animalList
                 .stream()
-                .filter(element -> {
-                    return Objects.equals(element.locomocao, "andar");
-                })
+                .filter(element -> Objects.equals(element.getLocomocao(), "andar"))
                 .collect(Collectors.toList());
 
         System.out.println(animaisQueAndam);
 
-        var animailMaiorCarnivoro = animalList
+        var animaisCarnivorosQueAndam = animalList
                 .stream()
-                .filter(element -> {
-                    return Objects.equals(element.alimentacao, "carnivoro");
-                })
-                ;
+                .filter(element -> Objects.equals(element.getAlimentacao(), "carnívoro"))
+                .filter(element -> Objects.equals(element.getLocomocao(), "andar"))
+                .collect(Collectors.toList());
 
-        System.out.println(animaisQueAndam);
+        System.out.println(animaisCarnivorosQueAndam);
+
+        var animalCarnivoroMaior = animaisCarnivoros
+                .stream()
+                .max(new Comparator<Animal>() {
+                    @Override
+                    public int compare(Animal a, Animal b) {
+                        return Integer.compare(a.getPeso(), b.getPeso());
+                    }
+                });
+
+        System.out.println(animalCarnivoroMaior);
     }
 }
