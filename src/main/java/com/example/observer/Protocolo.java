@@ -4,7 +4,7 @@ public interface Protocolo {
 
     Protocolo registrar(Observer observer);
     Protocolo esquecer(Observer observer);
-    void modificar();
+    void notificar();
     String getMensagem(Observer observer);
     void publicar(String mensagem);
 }
