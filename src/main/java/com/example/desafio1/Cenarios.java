@@ -1,5 +1,10 @@
 package com.example.desafio1;
 
+import com.example.model.Aguia;
+import com.example.model.Animal;
+import com.example.model.Elefante;
+import com.example.model.Lobo;
+
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;

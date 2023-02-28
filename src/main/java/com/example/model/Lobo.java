@@ -1,13 +1,13 @@
-package com.example.desafio1;
+package com.example.model;
 
-public class Aguia extends Animal{
-    public Aguia(int peso, String alimentacao, String locomocao) {
+public class Lobo extends Animal {
+    public Lobo(int peso, String alimentacao, String locomocao) {
         super(peso, alimentacao, locomocao);
     }
 
     @Override
     public String toString() {
-        return "Aguia{" +
+        return "Lobo{" +
                 "peso='" + peso + '\'' +
                 ", alimentacao='" + alimentacao + '\'' +
                 ", locomocao='" + locomocao + '\'' +
